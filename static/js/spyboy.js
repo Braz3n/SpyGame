@@ -8,6 +8,10 @@ const scanner = new QrScanner(video, result => parse_decoded_qr(result));
 const LOG_MAX_LINES = 8;
 var LOG_BUFFER = Array(LOG_MAX_LINES).fill('');
 
+const button_audio = new Howl({src:'/static/sfx/button.mp3'});
+const alert_audio  = new Howl({src:'/static/sfx/alert.mp3'});
+const hum_audio    = new Howl({src:'/static/sfx/hum.mp3', loop:true});
+
 function getSpyBoySvg() {
     $("#spyboy-svg-div").load("/static/img/spyboy.svg", () => {
         document.getElementById("StartLight").style.visibility = "visible";
@@ -19,6 +23,7 @@ function getSpyBoySvg() {
 
 function startReader() {
     console.log('Start Reader');
+    button_audio.play();
     document.getElementById("StartLight").style.visibility = "hidden";
     document.getElementById("StartDark").style.visibility = "visible";
     document.getElementById("StopLight").style.visibility = "visible";
@@ -28,10 +33,12 @@ function startReader() {
     document.getElementById('FullSpool').classList.add("spool_animation");
     document.getElementById('EmptySpool').classList.add("spool_animation");
     scanner.start();
+    hum_audio.play();
 }
 
 function stopReader() {
     console.log('Stop Reader');
+    button_audio.play();
     document.getElementById("StartLight").style.visibility = "visible";
     document.getElementById("StartDark").style.visibility = "hidden";
     document.getElementById("StopLight").style.visibility = "hidden";
@@ -41,6 +48,7 @@ function stopReader() {
     document.getElementById('FullSpool').classList.remove("spool_animation");
     document.getElementById('EmptySpool').classList.remove("spool_animation");
     scanner.pause();
+    hum_audio.stop();
 }
 
 function updateClock() {
@@ -111,6 +119,9 @@ function updateLogScreen(new_line) {
     if (LOG_BUFFER.at(-1) == new_line || new_line == '') {
         return;
     }
+
+    // This is a new unique detection, so alert the user.
+    alert_audio.play();
 
     var output_buffer = "";
     // First item in the buffer is the top of the display.
