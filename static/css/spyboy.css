@@ -1,0 +1,141 @@
+:root {
+    --sb-width:2732;
+    --sb-height:1314;
+}
+
+body {
+    overflow:hidden; /* Hide scrollbars */
+}
+
+#qrvideo {
+    /* The QR code reader video tag */
+    background-color:black;
+    position:absolute;
+    top:4vh;
+    left:3vw;
+    height:60vh;
+    width:50vw;
+}
+
+video {
+    width:100%
+}
+
+#logwindow {
+    /* The output log window */
+    background-color:black;
+    position:absolute;
+    top:15vh;
+    left:57vw;
+    height:27vh;
+    width:38vw;
+}
+
+#logwindow-text {
+    font-family:'Courier New', Courier, monospace;
+    font-weight:900;
+    font-size: 3vh;
+    color:rgb(4, 168, 4);
+    height:100%
+}
+
+#background {
+    /* Basically just fills out the log screen */
+    background-color:black;
+    background-size:100vw;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vw; 
+}
+
+#spyboy-svg-div {
+    /* background-size:100vw; */
+    /* width:100vw; */
+    position:absolute;
+    top:0;
+    left:0;
+    right:100vw;
+    bottom:100vh;
+    width:100vw;
+    height:100vw; 
+}
+
+[id^="button-"] {
+    position: absolute;
+    width:10vh;
+    height:10vh;
+    left:62.3vw;
+}
+
+#button-start {
+    /* background-color:yellow; */
+    top:55vh;
+}
+
+#button-stop {
+    /* background-color:yellow; */
+    top:69vh;
+}
+
+[id^="clock-"] {
+    top:89vh;
+    height:7vh;
+
+    color:lightgrey;
+    text-align: center;
+    font-size:5.7vh;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#clock-date {
+    position:absolute;
+    left:59.2vw;
+    width:5.5vw;
+}
+
+#clock-month {
+    position:absolute;
+    left:66.2vw;
+    width:7vw;
+}
+
+#clock-year {
+    position:absolute;
+    left:74.8vw;
+    width:8.3vw;
+}
+
+#clock-time {
+    position:absolute;
+    left:84.8vw;
+    width:8.3vw;
+}
+
+svg:not(:root) {
+    width:100%;
+    height:auto;
+}
+
+.spool_animation {
+    /* To make this work, you need to move the translation attribute
+    to a group outside of the spool group. Not sure if InkScape will
+    do that itself. Might need to be done manually. */
+    animation-name:spool-kf;
+    animation-duration:2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transform-origin: center;
+    transform-box: fill-box;
+    display: inline-block;
+}
+@keyframes spool-kf {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
