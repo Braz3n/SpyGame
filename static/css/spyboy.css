@@ -11,9 +11,9 @@ body {
     /* The QR code reader video tag */
     background-color:black;
     position:absolute;
-    top:4vh;
+    top:2vw;
     left:3vw;
-    height:60vh;
+    height:29vw;
     width:50vw;
 }
 
@@ -25,18 +25,19 @@ video {
     /* The output log window */
     background-color:black;
     position:absolute;
-    top:15vh;
+    top:8.5vw;
     left:57vw;
-    height:27vh;
+    height:12.5vw;
     width:38vw;
 }
 
 #logwindow-text {
     font-family:'Courier New', Courier, monospace;
     font-weight:900;
-    font-size: 3vh;
+    font-size: 1.27vw;
     color:rgb(4, 168, 4);
-    height:100%
+    height:100%;
+    width:100%;
 }
 
 #background {
@@ -44,10 +45,10 @@ video {
     background-color:black;
     background-size:100vw;
     position:absolute;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vw; 
+    top:0vw;
+    left:0vw;
+    height:100vh;
+    width:100vw; 
 }
 
 #spyboy-svg-div {
@@ -64,24 +65,24 @@ video {
 
 [id^="button-"] {
     position: absolute;
-    width:10vh;
-    height:10vh;
+    width:4.5vw;
+    height:4.5vw;
     left:62.3vw;
 }
 
 #button-start {
-    /* background-color:yellow; */
-    top:55vh;
+    /* background-color:green; */
+    top:26vw;
 }
 
 #button-stop {
     /* background-color:yellow; */
-    top:69vh;
+    top:33vw;
 }
 
 [id^="clock-"] {
-    top:89vh;
-    height:7vh;
+    top:42.3vw;
+    height:2.2vw;
 
     color:lightgrey;
     text-align: center;
