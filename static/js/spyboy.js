@@ -62,9 +62,9 @@ function updateClock() {
     document.getElementById("clock-year").innerText = padTime(d.getFullYear());
 
     if (document.getElementById("clock-time").innerText.includes(':')) {
-        document.getElementById("clock-time").innerText = padTime(d.getHours()%12) + " " + padTime(d.getMinutes());
+        document.getElementById("clock-time").innerText = padTime((d.getHours() % 12)  || 12) + " " + padTime(d.getMinutes());
     } else {
-        document.getElementById("clock-time").innerText = padTime(d.getHours()%12) + ":" + padTime(d.getMinutes());
+        document.getElementById("clock-time").innerText = padTime((d.getHours() % 12)  || 12) + ":" + padTime(d.getMinutes());
     }
 
     var month = "";
@@ -135,10 +135,8 @@ function updateLogScreen(new_line) {
 }
 
 $(document).ready(function() {
+    updateClock();
     document.getElementById('button-start').addEventListener('click', startReader);
-    // document.getElementById('button-stop').addEventListener('click', stopReader);
-
     getSpyBoySvg();   
-
     setInterval(updateClock, 1000);
 })
