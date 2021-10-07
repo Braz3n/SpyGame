@@ -1,0 +1,31 @@
+body {
+    overflow:hidden; /* Hide scrollbars */
+}
+
+#background {
+    /* Basically just fills out the log screen */
+    background-color:black;
+    background-size:100vw;
+    position:absolute;
+    top:0vw;
+    left:0vw;
+    height:100vh;
+    width:100vw; 
+}
+
+#vault-svg-div {
+    /* background-size:100vw; */
+    /* width:100vw; */
+    position:absolute;
+    top:0;
+    left:0;
+    right:100vw;
+    bottom:100vh;
+    width:100vw;
+    height:100vw; 
+}
+
+svg:not(:root) {
+    width:100%;
+    height:auto;
+}

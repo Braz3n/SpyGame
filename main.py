@@ -9,6 +9,10 @@ class QrHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("spyboy.html")
 
+class VaultHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("vault.html")
+
 def make_app():
     app_settings = dict(
         template_path = "templates",
@@ -18,6 +22,7 @@ def make_app():
     return tornado.web.Application([
         # (r"/", MainHandler),
         (r"/", QrHandler),
+        (r"/vault", VaultHandler),
         # (r"/favicon.ico", tornado.web.StaticFileHandler, {"path": "static/img/"})
     ],
     **app_settings)
