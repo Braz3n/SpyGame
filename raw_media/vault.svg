@@ -27,11 +27,11 @@
      units="px"
      width="2560px"
      inkscape:zoom="0.38796647"
-     inkscape:cx="1134.1186"
-     inkscape:cy="600.56737"
+     inkscape:cx="1381.5627"
+     inkscape:cy="672.73855"
      inkscape:window-width="1920"
      inkscape:window-height="1000"
-     inkscape:window-x="-11"
+     inkscape:window-x="1909"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer4" />
@@ -213,7 +213,7 @@
      inkscape:label="CentralGear"
      style="display:inline">
     <g
-       id="g11546">
+       id="g5207">
       <path
          id="path31-0"
          style="display:inline;fill:#202020;fill-opacity:1;fill-rule:nonzero;stroke:#202020;stroke-width:0.813961;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:72.4;stroke-dasharray:none;stroke-dashoffset:56.6929;stroke-opacity:1;paint-order:normal"
@@ -303,6 +303,12 @@
          cx="338.69696"
          cy="144.95255"
          r="29.188828" />
+      <circle
+         style="display:inline;fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#202020;stroke-width:3.876;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path3918-3-1"
+         cx="339.5831"
+         cy="145.96812"
+         r="15.393116" />
       <g
          id="g4451"
          transform="matrix(1.464947,0,0,1.464947,87.788419,-76.919376)"
