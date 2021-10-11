@@ -4,7 +4,7 @@ body {
 
 #background {
     /* Basically just fills out the log screen */
-    background-color:black;
+    /* background-color:black; */
     background-size:100vw;
     position:absolute;
     top:0vw;
@@ -28,4 +28,102 @@ body {
 svg:not(:root) {
     width:100%;
     height:auto;
+}
+
+[id^="vault-screen-div"] {
+    position: absolute;
+    width:6vw;
+    height:4vw;
+    color:greenyellow;
+    font-size:2.5vw;
+    font-weight:900;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 4vw;
+    user-select: none;
+}
+
+#vault-screen-div12 {
+    /* background-color: yellow; */
+    top:10.5vw;
+    left:53.5vw;
+}
+#vault-screen-div2 {
+    /* background-color: yellow; */
+    top:15.5vw;
+    left:62.3vw;
+}
+#vault-screen-div4 {
+    /* background-color: yellow; */
+    top:25.8vw;
+    left:62.3vw;
+}
+#vault-screen-div6 {
+    /* background-color: yellow; */
+    top:30.9vw;
+    left:53.5vw;
+}
+#vault-screen-div8 {
+    /* background-color: yellow; */
+    top:25.8vw;
+    left:44.6vw;
+}
+#vault-screen-div10 {
+    /* background-color: yellow; */
+    top:15.5vw;
+    left:44.6vw;
+}
+
+[id^="keypad-div"] {
+    position: absolute;
+    /* background-color: rgba(0, 128, 0, 0.315); */
+    width:6vw;
+    height:6vw;
+}
+
+
+#keypad-div1 {
+    top:10.5vw;
+    left:7vw;
+}
+#keypad-div2 {
+    top:10.5vw;
+    left:14.4vw;
+}
+#keypad-div3 {
+    top:10.5vw;
+    left:21.8vw;
+}
+#keypad-div4 {
+    top:17.9vw;
+    left:7vw;
+}
+#keypad-div5 {
+    top:17.9vw;
+    left:14.4vw;
+}
+#keypad-div6 {
+    top:17.9vw;
+    left:21.8vw;
+}
+#keypad-div7 {
+    top:25.3vw;
+    left:7vw;
+}
+#keypad-div8 {
+    top:25.3vw;
+    left:14.4vw;
+}
+#keypad-div9 {
+    top:25.3vw;
+    left:21.8vw;
+}
+#keypad-div0 {
+    top:32.7vw;
+    left:14.4vw;
+}
+#keypad-divCLR {
+    top:32.7vw;
+    left:21.8vw;
 }
