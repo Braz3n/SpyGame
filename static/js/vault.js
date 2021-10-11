@@ -2,8 +2,10 @@ let answers = [];
 let selectedVaultScreen = null;
 let selectedVaultScreenDiv = null;
 
+let vaultScreenDivIds = ['vault-screen-div2', 'vault-screen-div4', 'vault-screen-div6', 'vault-screen-div8', 'vault-screen-div10', 'vault-screen-div12']
+
 function getVaultSvg() {
-    $("#vault-svg-div").load("/static/img/vault.svg");
+    $("#vault-svg-div").load("/static/img/vault.svg", vaultHandleAnimationSetup);
 } 
 
 function getAnswersFromUrl() {
@@ -81,7 +83,6 @@ function setupVaultScreenCallbacks() {
 
 function checkInputsCorrect() {
     let answerMissing = false;
-    let vaultScreenDivIds = ['vault-screen-div2', 'vault-screen-div4', 'vault-screen-div6', 'vault-screen-div8', 'vault-screen-div10', 'vault-screen-div12']
 
     if (answers.length == 0) {
         return false;
@@ -98,9 +99,13 @@ function checkInputsCorrect() {
 }
 
 function vaultHandleCallback() {
-    // if (checkInputsCorrect()) {
-    if (true) {
-    console.log("Success")
+    if (checkInputsCorrect()) {
+        document.getElementById("AlertLights").classList.add("alert-light-drop-animation");
+        document.getElementById("AlertReflectorLeft").classList.add("alert-light-reflector-animation");
+        document.getElementById("AlertReflectorRight").classList.add("alert-light-reflector-animation");
+        vaultScreenDivIds.forEach(function (divId) {
+            document.getElementById(divId).classList.add("vault-screen-clear-animation");
+        })
         document.getElementById("VaultHandle").classList.add("handle-success-animation");
         document.getElementById("VaultDoor").classList.add("vault-open-animation");
     }
@@ -114,7 +119,6 @@ function vaultHandleAnimationSetup() {
     document.getElementById('VaultHandle').addEventListener('animationend', function (event) {
         console.log(event);
         event.target.classList.remove('handle-fail-animation');
-        event.target.classList.remove('handle-success-animation');
     });
 }
 
@@ -126,5 +130,5 @@ $(document).ready(function() {
 
     // The lazy way to wait for something to load in.
     // Might break once things are running over the internet.
-    setTimeout(vaultHandleAnimationSetup, 100);
+    // setTimeout(vaultHandleAnimationSetup, 100);
 });

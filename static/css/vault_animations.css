@@ -48,7 +48,44 @@
 @keyframes vault-open-kf {
     0% {}
     10% {transform: translateY(0.5vw);}
-    100%{
-        transform: translateX(50vw) rotate(320deg);
-    }
+    100%{transform: translateX(50vw) rotate(320deg);}
+}
+
+.vault-screen-clear-animation {
+    animation:vault-screen-clear-kf;
+    animation-duration:1.5s;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+}
+@keyframes vault-screen-clear-kf {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+.alert-light-drop-animation {
+    animation: alert-light-drop-kf;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes alert-light-drop-kf {
+    from {transform: translateY(0vw);}
+    to {transform: translateY(2.5vw);}
+}
+
+.alert-light-reflector-animation {
+    animation: alert-light-reflector-kf;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    transform-origin: center;
+    transform-box: fill-box;
+    display: inline-block;
+}
+@keyframes alert-light-reflector-kf {
+    0% {transform: scaleX(1);}
+    50% {transform: scaleX(0);}
+    100% {transform: scaleX(1);}
 }
