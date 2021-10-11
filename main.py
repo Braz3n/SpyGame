@@ -1,9 +1,9 @@
 import tornado.ioloop
 import tornado.web
 
-class MainHandler(tornado.web.RequestHandler):
+class TeacherHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello, world")
+        self.render("teacher.html")
 
 class QrHandler(tornado.web.RequestHandler):
     def get(self):
@@ -23,6 +23,7 @@ def make_app():
         # (r"/", MainHandler),
         (r"/", QrHandler),
         (r"/vault", VaultHandler),
+        (r"/teacher", TeacherHandler),
         # (r"/favicon.ico", tornado.web.StaticFileHandler, {"path": "static/img/"})
     ],
     **app_settings)
