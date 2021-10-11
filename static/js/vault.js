@@ -28,7 +28,7 @@ function getAnswersFromUrl() {
     }
 }
 
-function keypadCallback(event) {
+function keypadClickCallback(event) {
     if (selectedVaultScreen == null) {
         return;
     }
@@ -41,25 +41,30 @@ function keypadCallback(event) {
     }
 }
 
+function keypadMouseUpCallback(event) {
+    document.getElementById(event.target.attributes["data-svg-id"].nodeValue).style.fill = "#FFFFFF"
+}
+
+function keypadMouseDownCallback(event) {
+    document.getElementById(event.target.attributes["data-svg-id"].nodeValue).style.fill = "#707070"
+}
+
 function setupKeypadCallbacks() {
-    document.getElementById('keypad-div0').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div1').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div2').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div3').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div4').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div5').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div6').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div7').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div8').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-div9').addEventListener('click', keypadCallback);
-    document.getElementById('keypad-divCLR').addEventListener('click', keypadCallback);
+    let keypadDivIds = ["keypad-div0", "keypad-div1", "keypad-div2", "keypad-div3", "keypad-div4", "keypad-div5", "keypad-div6", "keypad-div7", "keypad-div8", "keypad-div9", "keypad-divCLR"]
+    
+    keypadDivIds.forEach(function (divName) {
+        let targetDiv = document.getElementById(divName);
+        targetDiv.addEventListener('click', keypadClickCallback);
+        targetDiv.addEventListener('mouseup', keypadMouseUpCallback);
+        targetDiv.addEventListener('mouseleave', keypadMouseUpCallback);
+        targetDiv.addEventListener('mousedown', keypadMouseDownCallback);
+    })
 }
 
 function vaultScreenCallback(event) {
     if (selectedVaultScreen != null) {
         selectedVaultScreen.style.strokeWidth = 1;
     }
-    console.log(event.target.attributes["data-svg-id"].nodeValue);
     selectedVaultScreen = document.getElementById(event.target.attributes["data-svg-id"].nodeValue);
     selectedVaultScreenDiv = event.target;
     selectedVaultScreen.style.strokeWidth = 3;
@@ -74,9 +79,52 @@ function setupVaultScreenCallbacks() {
     document.getElementById('vault-screen-div12').addEventListener('click', vaultScreenCallback);
 }
 
+function checkInputsCorrect() {
+    let answerMissing = false;
+    let vaultScreenDivIds = ['vault-screen-div2', 'vault-screen-div4', 'vault-screen-div6', 'vault-screen-div8', 'vault-screen-div10', 'vault-screen-div12']
+
+    if (answers.length == 0) {
+        return false;
+    }
+
+    vaultScreenDivIds.forEach(function (divId) {
+        let answerIndex = answers.indexOf(document.getElementById(divId).textContent);
+        if (answerIndex == -1) {
+            answerMissing = true;
+        }
+    })
+
+    return !answerMissing;
+}
+
+function vaultHandleCallback() {
+    // if (checkInputsCorrect()) {
+    if (true) {
+    console.log("Success")
+        document.getElementById("VaultHandle").classList.add("handle-success-animation");
+        document.getElementById("VaultDoor").classList.add("vault-open-animation");
+    }
+    else {
+        document.getElementById("VaultHandle").classList.add("handle-fail-animation");
+    }
+}
+
+function vaultHandleAnimationSetup() {
+    document.getElementById('vault-handle-div').addEventListener('click', vaultHandleCallback);
+    document.getElementById('VaultHandle').addEventListener('animationend', function (event) {
+        console.log(event);
+        event.target.classList.remove('handle-fail-animation');
+        event.target.classList.remove('handle-success-animation');
+    });
+}
+
 $(document).ready(function() {
     getAnswersFromUrl();
     getVaultSvg();
     setupKeypadCallbacks();
     setupVaultScreenCallbacks();
+
+    // The lazy way to wait for something to load in.
+    // Might break once things are running over the internet.
+    setTimeout(vaultHandleAnimationSetup, 100);
 });

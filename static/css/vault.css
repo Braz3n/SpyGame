@@ -127,3 +127,12 @@ svg:not(:root) {
     top:32.7vw;
     left:21.8vw;
 }
+
+#vault-handle-div {
+    position: absolute;
+    /* background-color: rgba(0, 128, 0, 0.315); */
+    width:6vw;
+    height:6vw;
+    top:19.7vw;
+    left:53.5vw;
+}

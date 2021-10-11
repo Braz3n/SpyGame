@@ -26,15 +26,15 @@
      showgrid="false"
      units="px"
      width="2560px"
-     inkscape:zoom="0.5"
-     inkscape:cx="994"
-     inkscape:cy="584"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="1401.4856"
+     inkscape:cy="325.26912"
      inkscape:window-width="1920"
      inkscape:window-height="1000"
      inkscape:window-x="1909"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer7"
+     inkscape:current-layer="layer1"
      showguides="false" />
   <defs
      id="defs2">
@@ -295,7 +295,7 @@
      inkscape:label="CentralGear"
      style="display:inline">
     <g
-       id="CentralGear">
+       id="VaultDoor">
       <path
          id="path31"
          style="display:inline;fill:#707070;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.918248;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:72.4;stroke-dasharray:none;stroke-dashoffset:56.6929;stroke-opacity:1;paint-order:normal"
@@ -389,9 +389,9 @@
          cx="383.48578"
          cy="154.42932"
          r="17.36532" />
+      <g transform="matrix(1.6526397,0,0,1.6526397,99.430527,-97.015083)">
       <g
-         id="g4451"
-         transform="matrix(1.6526397,0,0,1.6526397,99.430527,-97.015083)"
+         id="VaultHandle"
          style="display:inline">
         <circle
            style="fill:none;fill-rule:evenodd;stroke:#c0500e;stroke-width:2.64583;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -425,7 +425,7 @@
            cx="171.27484"
            cy="151.45389"
            r="2.331331" />
-      </g>
+      </g></g>
       <path
          id="VaultScreen12"
          style="display:inline;stroke:#d30000;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:72.4;stroke-dasharray:none;stroke-dashoffset:56.6929"
@@ -1022,7 +1022,7 @@
      inkscape:label="AlertLights"
      style="display:inline">
     <g
-       id="AlertLight"
+       id="AlertLightLeft"
        transform="matrix(1,0,0,0.72914881,291.47249,-56.22872)">
       <g
          id="g24143">
@@ -1041,7 +1041,7 @@
            transform="scale(0.26458333)" />
       </g>
       <g
-         id="AlertReflector"
+         id="AlertReflectorLeft"
          transform="matrix(1.3412437,0,0,1,38.598829,0.46302083)">
         <path
            sodipodi:type="star"
@@ -1080,7 +1080,7 @@
       </g>
     </g>
     <g
-       id="AlertLight-8"
+       id="AlertLightRight"
        transform="matrix(1,0,0,0.72914881,696.30949,-56.22872)">
       <g
          id="g24143-5">
@@ -1099,7 +1099,7 @@
            transform="scale(0.26458333)" />
       </g>
       <g
-         id="AlertReflector-3"
+         id="AlertReflectorRight"
          transform="matrix(1.3412437,0,0,1,38.598829,0.46302083)">
         <path
            sodipodi:type="star"

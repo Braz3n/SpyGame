@@ -1,0 +1,54 @@
+.handle-fail-animation {
+    /* To make this work, you need to move the translation attribute
+    to a group outside of the spool group. Not sure if InkScape will
+    do that itself. Might need to be done manually. */
+    animation-name:handle-fail-kf;
+    animation-duration:0.2s;
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+    transform-origin: center;
+    transform-box: fill-box;
+    display: inline-block;
+}
+@keyframes handle-fail-kf {
+    0% {transform: rotate(0deg);}
+    33% {transform: rotate(-20deg);}
+    66% {transform: rotate(+20deg);}
+    100% {transform: rotate(0deg);}
+}
+
+.handle-success-animation {
+    /* To make this work, you need to move the translation attribute
+    to a group outside of the spool group. Not sure if InkScape will
+    do that itself. Might need to be done manually. */
+    animation-name:handle-success-kf;
+    animation-duration:1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    transform-origin: center;
+    transform-box: fill-box;
+    display: inline-block;
+}
+@keyframes handle-success-kf {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(1080deg);}
+}
+
+.vault-open-animation {
+    animation:vault-open-kf;
+    animation-duration:4s;
+    animation-delay: 2s;
+    animation-iteration-count:1;
+    animation-timing-function:ease-in;
+    animation-fill-mode:forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+    display: inline-block;
+}
+@keyframes vault-open-kf {
+    0% {}
+    10% {transform: translateY(0.5vw);}
+    100%{
+        transform: translateX(50vw) rotate(320deg);
+    }
+}
