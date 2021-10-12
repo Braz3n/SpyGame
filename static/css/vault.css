@@ -136,3 +136,27 @@ svg:not(:root) {
     top:19.7vw;
     left:53.5vw;
 }
+
+#treasure-div {
+    position:absolute;
+    background-color: darkgray;
+    border-radius:15.5vw;
+    width:31vw;
+    height:31vw;
+    top:7vw;
+    left:41vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#treasure-text {
+    color:greenyellow;
+    font-size:3vw;
+    font-weight:900;
+    font-family: 'Courier New', Courier, monospace;
+    user-select: none;
+    width:80%;
+    text-align: center;
+}

@@ -27,14 +27,14 @@
      units="px"
      width="2560px"
      inkscape:zoom="0.5"
-     inkscape:cx="1505"
-     inkscape:cy="630"
+     inkscape:cx="1435"
+     inkscape:cy="692"
      inkscape:window-width="1920"
      inkscape:window-height="1000"
      inkscape:window-x="1909"
      inkscape:window-y="-11"
      inkscape:window-maximized="1"
-     inkscape:current-layer="VaultDoorRoll"
+     inkscape:current-layer="layer7"
      showguides="false" />
   <defs
      id="defs2">
@@ -257,19 +257,17 @@
      inkscape:groupmode="layer"
      id="layer7"
      inkscape:label="BackWall"
-     style="display:inline"
-     sodipodi:insensitive="true">
-    <rect
-       style="opacity:1;fill:#484848;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.559465;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:72.4;stroke-dasharray:none;stroke-dashoffset:56.6929;stroke-opacity:1;paint-order:normal"
+     style="display:inline">
+    <path
        id="rect12047"
-       width="677.33331"
-       height="320.14584"
-       x="0"
-       y="0" />
+       style="opacity:1;fill:#484848;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2.11451;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:72.4;stroke-dasharray:none;stroke-dashoffset:56.6929;stroke-opacity:1;paint-order:normal"
+       d="M 0 0 L 0 1210 L 2560 1210 L 2560 0 L 0 0 z M 1445.4863 186.1875 A 393.15137 393.15137 0 0 1 1838.6387 579.33984 A 393.15137 393.15137 0 0 1 1445.4863 972.49023 A 393.15137 393.15137 0 0 1 1052.3359 579.33984 A 393.15137 393.15137 0 0 1 1445.4863 186.1875 z "
+       transform="scale(0.26458333)" />
     <path
        id="path31-9"
-       style="display:inline;fill:#191919;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.945971;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:72.4;stroke-dasharray:none;stroke-dashoffset:56.6929;stroke-opacity:1;paint-order:normal"
-       d="M 362.62366,0.33415224 349.90693,31.823384 293.53671,64.368394 259.90776,59.636779 240.07951,93.980992 260.99166,120.7386 v 65.09003 l -20.91215,26.75762 19.82825,34.34422 33.62895,-4.73162 56.37022,32.54501 12.71673,31.48923 h 39.65653 l 12.71671,-31.48923 56.37026,-32.54501 33.62893,4.73162 19.82825,-34.34422 -20.91216,-26.75762 V 120.7386 L 524.82434,93.980992 504.99609,59.636779 471.36716,64.368394 414.9969,31.823384 402.28019,0.33415224 Z" />
+       style="display:inline;fill:#191919;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.57532;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:72.4;stroke-dasharray:none;stroke-dashoffset:56.6929;stroke-opacity:1;paint-order:normal"
+       d="M 1370.5469 1.2636719 L 1322.4824 120.27734 L 1109.4297 243.28125 L 982.32812 225.39844 L 907.38672 355.20312 L 986.42578 456.33398 L 986.42578 702.34375 L 907.38672 803.47656 L 982.32812 933.28125 L 1109.4297 915.39648 L 1322.4824 1038.4023 L 1370.5469 1157.416 L 1520.4297 1157.416 L 1568.4922 1038.4023 L 1781.5449 915.39648 L 1908.6465 933.28125 L 1983.5879 803.47656 L 1904.5508 702.34375 L 1904.5508 456.33398 L 1983.5879 355.20312 L 1908.6465 225.39844 L 1781.5449 243.28125 L 1568.4922 120.27734 L 1520.4297 1.2636719 L 1370.5469 1.2636719 z M 1445.4883 186.1875 A 393.15137 393.15137 0 0 1 1838.6387 579.33984 A 393.15137 393.15137 0 0 1 1445.4883 972.49023 A 393.15137 393.15137 0 0 1 1052.3359 579.33984 A 393.15137 393.15137 0 0 1 1445.4883 186.1875 z "
+       transform="scale(0.26458333)" />
   </g>
   <g
      inkscape:groupmode="layer"
