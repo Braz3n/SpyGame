@@ -1,3 +1,10 @@
+const keypad_click_audio = new Howl({src:'/static/sfx/keypad_click.mp3'});
+const handle_failure_audio = new Howl({src:'/static/sfx/handle_failure.mp3'});
+const vault_alarm_audio = new Howl({src:'/static/sfx/vault_alarm.mp3', loop:true});
+const vault_open_audio = new Howl({src:'/static/sfx/vault_open.mp3'});
+const vault_open_alarm_audio = new Howl({src:'/static/sfx/vault_open_alarm.mp3'});
+
+
 let answers = [];
 let selectedVaultScreen = null;
 let selectedVaultScreenDiv = null;
@@ -48,6 +55,7 @@ function keypadMouseUpCallback(event) {
 }
 
 function keypadMouseDownCallback(event) {
+    keypad_click_audio.play();
     document.getElementById(event.target.attributes["data-svg-id"].nodeValue).style.fill = "#707070"
 }
 
@@ -83,7 +91,7 @@ function setupVaultScreenCallbacks() {
 
 function checkInputsCorrect() {
     let answerMissing = false;
-
+    return true;
     if (answers.length == 0) {
         return false;
     }
@@ -100,6 +108,7 @@ function checkInputsCorrect() {
 
 function vaultHandleCallback() {
     if (checkInputsCorrect()) {
+        vault_open_alarm_audio.play();
         document.getElementById("AlertLights").classList.add("alert-light-drop-animation");
         document.getElementById("AlertReflectorLeft").classList.add("alert-light-reflector-animation");
         document.getElementById("AlertReflectorRight").classList.add("alert-light-reflector-animation");
@@ -107,9 +116,11 @@ function vaultHandleCallback() {
             document.getElementById(divId).classList.add("vault-screen-clear-animation");
         })
         document.getElementById("VaultHandle").classList.add("handle-success-animation");
-        document.getElementById("VaultDoor").classList.add("vault-open-animation");
+        document.getElementById("VaultDoorDrop").classList.add("vault-drop-animation");
+        document.getElementById("VaultDoorRoll").classList.add("vault-roll-animation");
     }
     else {
+        handle_failure_audio.play();
         document.getElementById("VaultHandle").classList.add("handle-fail-animation");
     }
 }

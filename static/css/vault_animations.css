@@ -22,7 +22,7 @@
     to a group outside of the spool group. Not sure if InkScape will
     do that itself. Might need to be done manually. */
     animation-name:handle-success-kf;
-    animation-duration:1.5s;
+    animation-duration:2.8s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     transform-origin: center;
@@ -31,13 +31,13 @@
 }
 @keyframes handle-success-kf {
     from {transform: rotate(0deg);}
-    to {transform: rotate(1080deg);}
+    to {transform: rotate(2160deg);}
 }
 
-.vault-open-animation {
-    animation:vault-open-kf;
-    animation-duration:4s;
-    animation-delay: 2s;
+.vault-drop-animation {
+    animation:vault-drop-kf; 
+    animation-duration:3.2s;
+    animation-delay: 2.9s;
     animation-iteration-count:1;
     animation-timing-function:ease-in;
     animation-fill-mode:forwards;
@@ -45,9 +45,24 @@
     transform-box: fill-box;
     display: inline-block;
 }
-@keyframes vault-open-kf {
+@keyframes vault-drop-kf {
+    0% {transform: translateY(0vw);}
+    100% {transform: translateY(0.5vw);}
+}
+
+.vault-roll-animation {
+    animation:vault-roll-kf;
+    animation-duration:10s;
+    animation-delay: 6.8s;
+    animation-iteration-count:1;
+    animation-timing-function:ease-in;
+    animation-fill-mode:forwards;
+    transform-origin: center;
+    transform-box: fill-box;
+    display: inline-block;
+}
+@keyframes vault-roll-kf {
     0% {}
-    10% {transform: translateY(0.5vw);}
     100%{transform: translateX(50vw) rotate(320deg);}
 }
 
