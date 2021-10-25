@@ -33,6 +33,7 @@ function startReader() {
     document.getElementById('FullSpool').classList.add("spool_animation");
     document.getElementById('EmptySpool').classList.add("spool_animation");
     scanner.start();
+    scanner.setInversionMode("both");
     hum_audio.play();
 }
 
