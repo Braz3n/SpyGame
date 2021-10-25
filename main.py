@@ -13,6 +13,10 @@ class VaultHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("vault.html")
 
+class AudioQuestionHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("audio_question.html")
+
 def make_app():
     app_settings = dict(
         template_path = "templates",
@@ -24,7 +28,7 @@ def make_app():
         (r"/", QrHandler),
         (r"/vault", VaultHandler),
         (r"/teacher", TeacherHandler),
-        # (r"/favicon.ico", tornado.web.StaticFileHandler, {"path": "static/img/"})
+        (r"/question", AudioQuestionHandler),
     ],
     **app_settings)
 
