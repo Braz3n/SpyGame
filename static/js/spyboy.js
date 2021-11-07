@@ -7,8 +7,8 @@ const video = document.getElementById('videoInput');
 const scanner = new QrScanner(video, result => parse_decoded_qr(result), QrScanner._onDecodeError, calculateScanRegion);
 // scanner.setGrayscaleWeights(red, green, blue, useIntegerApproximation = true);
 // scanner.setGrayscaleWeights(0.45, 0.45, 0.1); // Eyeballed
-// scanner.setGrayscaleWeights(0.33, 0.64, 0.00); // Blue Math
-// scanner.setGrayscaleWeights(0.22, 0.78, 0.21); // Green Math
+// scanner.setGrayscaleWeights(0.33, 0.64, 0.0); // Blue Math
+// scanner.setGrayscaleWeights(0.22, 0.78, 0.0); // Green Math
 
 const LOG_MAX_LINES = 8;
 var LOG_BUFFER = Array(LOG_MAX_LINES).fill('');
