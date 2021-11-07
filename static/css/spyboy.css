@@ -3,6 +3,11 @@
     --sb-height:1314;
 }
 
+div {
+    /* Prevent the user from being able to accidently highlight text */
+    user-select: none;
+}
+
 body {
     overflow:hidden; /* Hide scrollbars */
 }
@@ -11,10 +16,25 @@ body {
     /* The QR code reader video tag */
     background-color:black;
     position:absolute;
-    top:2vw;
-    left:3vw;
-    height:29vw;
+    transform: translate(-50%, -50%);
+    top:16.1vw;
+    left:27.6vw;
+    height:27.7vw;
     width:50vw;
+}
+
+#target-div {
+    /* background-color: rgba(255, 0, 0, 0.233); */
+    position:absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    height:12vw;
+    width:12vw;
+}
+
+#target-div img {
+    width:100%;
 }
 
 video {

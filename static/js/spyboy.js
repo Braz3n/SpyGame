@@ -1,9 +1,14 @@
-import QrScanner from '/static/js/qr-scanner.min.js';
+// import QrScanner from '/static/js/qr-scanner.min.js';
+import QrScanner from '/static/js/qr-scanner.js';
 QrScanner.WORKER_PATH = '/static/js/qr-scanner-worker.min.js';
 
 const video = document.getElementById('videoInput');
 // const scanner = new QrScanner(video, result => console.log("Decoded QR", result));
-const scanner = new QrScanner(video, result => parse_decoded_qr(result));
+const scanner = new QrScanner(video, result => parse_decoded_qr(result), QrScanner._onDecodeError, calculateScanRegion);
+// scanner.setGrayscaleWeights(red, green, blue, useIntegerApproximation = true);
+// scanner.setGrayscaleWeights(0.45, 0.45, 0.1); // Eyeballed
+// scanner.setGrayscaleWeights(0.33, 0.64, 0.00); // Blue Math
+// scanner.setGrayscaleWeights(0.22, 0.78, 0.21); // Green Math
 
 const LOG_MAX_LINES = 8;
 var LOG_BUFFER = Array(LOG_MAX_LINES).fill('');
@@ -11,6 +16,33 @@ var LOG_BUFFER = Array(LOG_MAX_LINES).fill('');
 const button_audio = new Howl({src:'/static/sfx/button.mp3'});
 const alert_audio  = new Howl({src:'/static/sfx/alert.mp3'});
 const hum_audio    = new Howl({src:'/static/sfx/hum.mp3', loop:true});
+
+function calculateScanRegion(video) {
+    // Default scan region calculation. Note that this can be overwritten in the constructor.
+    // const smallestDimension = Math.min(video.videoWidth, video.videoHeight);
+    // const scanRegionSize = Math.round(2 / 3 * smallestDimension);
+    let target_div = document.getElementById('target-div');
+    
+    console.log(video)
+    console.log(video.clientWidth, video.clientHeight, video.videoHeight, video.videoWidth)
+
+    // This is needed to transfer between video coordinates and the coordinates on the screen.
+    let height_multiplier = video.videoHeight / video.clientHeight;
+    let width_multiplier = video.videoWidth / video.clientWidth;
+
+    let target_width = target_div.offsetWidth;
+    let target_height = target_div.offsetHeight;
+    let target_x_offset = target_div.offsetLeft - target_width/2;
+    let target_y_offset = target_div.offsetTop - target_height/2;
+    return {
+        x: target_x_offset * width_multiplier,
+        y: target_y_offset * height_multiplier,
+        width: target_width * width_multiplier,
+        height: target_height * height_multiplier,
+        downScaledWidth: target_width * width_multiplier,
+        downScaledHeight: target_height * height_multiplier,
+    };
+}
 
 function getSpyBoySvg() {
     $("#spyboy-svg-div").load("/static/img/spyboy.svg", () => {
@@ -34,6 +66,7 @@ function startReader() {
     document.getElementById('EmptySpool').classList.add("spool_animation");
     scanner.start();
     scanner.setInversionMode("both");
+    console.log(scanner._scanRegion);
     hum_audio.play();
 }
 
@@ -117,7 +150,8 @@ function parse_decoded_qr(code) {
 }
 
 function updateLogScreen(new_line) {
-    if (LOG_BUFFER.at(-1) == new_line || new_line == '') {
+    console.log(LOG_BUFFER);
+    if ((LOG_BUFFER.length > 0 && LOG_BUFFER.at(-1) == new_line) || new_line == '') {
         return;
     }
 

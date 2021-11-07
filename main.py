@@ -17,6 +17,10 @@ class AudioQuestionHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("audio_question.html")
 
+class ReflectionHandler(tornado.web.RequestHandler):
+    def get(self):
+        self.render("reflection.html")
+
 def make_app():
     app_settings = dict(
         template_path = "templates",
@@ -29,6 +33,7 @@ def make_app():
         (r"/vault", VaultHandler),
         (r"/teacher", TeacherHandler),
         (r"/question", AudioQuestionHandler),
+        (r"/reflection", ReflectionHandler),
     ],
     **app_settings)
 

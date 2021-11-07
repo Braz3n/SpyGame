@@ -16,20 +16,22 @@
 
     <body>
         <div id="background">
-            <div id=qrvideo>
-                <!-- width="640" -->
-                <video id="videoInput" playsinline disablepictureinpicture></video>
-            </div>
-
+            
             <div id="logwindow">
                 <pre id="logwindow-text">
-                   
+                    
                 </pre>
             </div>
+
+            <div id="qrvideo">
+                <video id="videoInput" playsinline disablepictureinpicture></video>
+                <div id="target-div"><img src="/static/img/crosshair.svg"></div>
+            </div>
+            
             <div id="spyboy-svg-div">
                 <!-- Populated with inline SVG via JS. -->
             </div>
-
+            
             <div id="clock-date">
                 
             </div>
@@ -46,5 +48,9 @@
             <div id="button-stop"></div>
         </div>
         
+        <div id="canvas_holder" style="position: absolute;top:60vw">
+
+        </div>
+
     </body>
 </html>

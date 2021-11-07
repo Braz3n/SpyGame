@@ -5,7 +5,7 @@ const vault_open_audio = new Howl({src:'/static/sfx/vault_open.mp3'});
 const vault_open_alarm_audio = new Howl({src:'/static/sfx/vault_open_alarm.mp3'});
 
 
-let answers = [];
+var answers = ["314", "365", "130", "1024", "6087", "4096"];
 let selectedVaultScreen = null;
 let selectedVaultScreenDiv = null;
 
@@ -72,6 +72,7 @@ function setupKeypadCallbacks() {
 }
 
 function vaultScreenCallback(event) {
+    console.log(event);
     if (selectedVaultScreen != null) {
         selectedVaultScreen.style.strokeWidth = 1;
     }
@@ -87,19 +88,28 @@ function setupVaultScreenCallbacks() {
     document.getElementById('vault-screen-div8').addEventListener('click', vaultScreenCallback);
     document.getElementById('vault-screen-div10').addEventListener('click', vaultScreenCallback);
     document.getElementById('vault-screen-div12').addEventListener('click', vaultScreenCallback);
+
+
+    document.getElementById('vault-screen-div12').click();
 }
 
 function checkInputsCorrect() {
     let answerMissing = false;
-    return true;
+    let answersCopy = Array.from(answers);
+    console.log(answers);
     if (answers.length == 0) {
         return false;
     }
 
     vaultScreenDivIds.forEach(function (divId) {
-        let answerIndex = answers.indexOf(document.getElementById(divId).textContent);
+        let answerIndex = answersCopy.indexOf(document.getElementById(divId).textContent);
+        console.log(document.getElementById(divId).textContent, answerIndex);
         if (answerIndex == -1) {
             answerMissing = true;
+        }
+        else {
+            // Cut out the discovered answer from the array to prevent duplicate detections.
+            answersCopy.splice(answerIndex, 1);
         }
     })
 
@@ -131,15 +141,12 @@ function vaultHandleAnimationSetup() {
         console.log(event);
         event.target.classList.remove('handle-fail-animation');
     });
+
+    setupVaultScreenCallbacks();
 }
 
 $(document).ready(function() {
-    getAnswersFromUrl();
+    // getAnswersFromUrl();
     getVaultSvg();
     setupKeypadCallbacks();
-    setupVaultScreenCallbacks();
-
-    // The lazy way to wait for something to load in.
-    // Might break once things are running over the internet.
-    // setTimeout(vaultHandleAnimationSetup, 100);
 });
