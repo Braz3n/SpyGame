@@ -152,7 +152,7 @@ svg:not(:root) {
 }
 
 #treasure-text {
-    color:greenyellow;
+    color:black;
     font-size:3vw;
     font-weight:900;
     font-family: 'Courier New', Courier, monospace;

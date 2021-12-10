@@ -31,12 +31,9 @@ function loadVault() {
     let vaultString = document.getElementById('vault-text').value
 
     inputIds.forEach(function (id, index) {
-        // vaultCookie += "0" + (index+1) + "=" + document.getElementById(id).value + ";";
-        document.cookie = id + '=' + document.getElementById(id).value + ';max-age=86400;'
+        document.cookie = id + '=' + document.getElementById(id).value + ';max-age=86400;SameSite=Strict;'
     })
-    // vaultCookie += "vault-text=" + vaultString + ';'
-    document.cookie = "vault-text=" + vaultString + ';max-age=86400;'
-    // document.cookie = vaultCookie;
+    document.cookie = "vault-text=" + vaultString + ';max-age=86400;SameSite=Strict;'
 
     window.location.href = "/vault";
 }
