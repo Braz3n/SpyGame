@@ -5,7 +5,7 @@ const vault_open_audio = new Howl({src:'/static/sfx/vault_open.mp3'});
 const vault_open_alarm_audio = new Howl({src:'/static/sfx/vault_open_alarm.mp3'});
 
 
-var answers = ["314", "365", "130", "1024", "6087", "4096"];
+var answers = ["16", "25", "36", "49", "64", "81"];
 let selectedVaultScreen = null;
 let selectedVaultScreenDiv = null;
 
@@ -15,25 +15,29 @@ function getVaultSvg() {
     $("#vault-svg-div").load("/static/img/vault.svg", vaultHandleAnimationSetup);
 } 
 
-function getAnswersFromUrl() {
-    if (history.state == null) {
-        // Read in the answers from the URL parameters,
-        // and then modify the URL to hide them.
-        // The answers are then stored in the history state
-        // in case the page is refreshed for some reason.
-        var url_parameters = new URLSearchParams(document.location.search.substring(1));
-        answers.push(url_parameters.get("01"));
-        answers.push(url_parameters.get("02"));
-        answers.push(url_parameters.get("03"));
-        answers.push(url_parameters.get("04"));
-        answers.push(url_parameters.get("05"));
-        answers.push(url_parameters.get("06"));
-        history.replaceState({answers:answers}, "", "vault");
-    }
-    else{
-        // If there is a history state for the page, load the
-        // answers in from there instead.
-        answers = history.state["answers"];
+function getCookie(cName) {
+    const name = cName + "=";
+    const cDecoded = decodeURIComponent(document.cookie); //to be careful
+    const cArr = cDecoded.split('; ');
+    let res;
+    cArr.forEach(val => {
+      if (val.indexOf(name) === 0) res = val.substring(name.length);
+    })
+    return res
+}
+
+function getAnswersFromCookies() {
+    let ans01 = getCookie("ans01");
+    let ans02 = getCookie("ans02");
+    let ans03 = getCookie("ans03");
+    let ans04 = getCookie("ans04");
+    let ans05 = getCookie("ans05");
+    let ans06 = getCookie("ans06");
+    let vault_text = getCookie("vault-text");
+
+    if (ans01 && ans02 && ans03 && ans04 && ans05 && ans06 && vault_text) {
+        answers = [ans01, ans02, ans03, ans04, ans05, ans06];
+        document.getElementById('treasure-text').innerText = vault_text;
     }
 }
 
@@ -146,7 +150,7 @@ function vaultHandleAnimationSetup() {
 }
 
 $(document).ready(function() {
-    // getAnswersFromUrl();
+    getAnswersFromCookies();
     getVaultSvg();
     setupKeypadCallbacks();
 });

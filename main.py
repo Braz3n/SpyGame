@@ -41,16 +41,3 @@ if __name__ == "__main__":
     app = make_app()
     app.listen(8888)
     tornado.ioloop.IOLoop.current().start()
-
-# def create_app(test_config=None, *args, **kwargs):
-#     # create and configure the app
-#     app = Flask(__name__, instance_relative_config=True)
-#     app.config.from_mapping(
-#         SECRET_KEY='zamQeXN67jtm',  # cat /dev/urandom | base64 | head -c 12
-#         DATABASE=''
-#     )
-
-#     from . import page
-#     app.register_blueprint(page.bp)
-
-#     return app

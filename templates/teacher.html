@@ -14,49 +14,69 @@
     </head>
 
     <body>
-        <section class="section">
-            <h1 class="title">Teacher Setup</h1>
-            <h1 class="subtitle">Please Choose 6 Answers</h1>
-            <p>Each field can be up to 4 digits long.</p>
-
-            <form>
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans01" placeholder="0000" step="1" required>
+        <section class="hero is-warning is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="box column is-9-tablet is-7-desktop is-6-widescreen">
+                            <h1 class="title">Spy-Game Vault Setup</h1>
+                            <h1 class="subtitle">Please Choose 6 Answers and enter a sentence for the vault to contain.</h1>
+                            
+                            <form>
+                                <p>Each number can be up to 4 digits long.</p>
+                                <div class="field">
+                                    <label class="label">
+                                        Vault Lock Numbers
+                                    </label>
+                                    <div class="control">
+                                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans01" placeholder="0000" step="1" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans02" placeholder="0000" step="1" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans03" placeholder="0000" step="1" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans04" placeholder="0000" step="1" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans05" placeholder="0000" step="1" required>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans06" placeholder="0000" step="1" required>
+                                    </div>
+                                </div>
+                
+                                <div class="field">
+                                    <label class="label">
+                                        Vault Text
+                                    </label>
+                                    <div class="control">
+                                        <input class="input" type="text" id="vault-text" placeholder="Happy Halloween" required>
+                                    </div>
+                                </div>
+                    
+                                <div class="field">
+                                    <div class="control">
+                                        <button id="submit-button" class="button is-success" type="button" disabled>Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans02" placeholder="0000" step="1" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans03" placeholder="0000" step="1" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans04" placeholder="0000" step="1" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans05" placeholder="0000" step="1" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="number" min="0" max="9999" maxlength="4" id="ans06" placeholder="0000" step="1" required>
-                    </div>
-                </div>
-    
-                <div class="field">
-                    <div class="control">
-                        <button id="submit-button" class="button is-success" type="button" disabled>Submit</button>
-                    </div>
-                </div>
-            </form>
+            </div>
         </section>
     </body>
 </html>
