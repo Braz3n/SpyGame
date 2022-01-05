@@ -35,7 +35,7 @@ function loadVault() {
     })
     document.cookie = "vault-text=" + vaultString + ';max-age=86400;SameSite=Strict;'
 
-    window.location.href = "/vault";
+    window.location.href = window.location.href.replace('teacher', 'vault');
 }
 
 function registerCallbacks() {
