@@ -20,7 +20,7 @@ for (const C of [Array, String, TypedArray]) {
 }
 
 // import QrScanner from '/static/js/qr-scanner.min.js';
-import QrScanner from '/static/js/qr-scanner.js';
+import QrScanner from '/static/js/qr-scanner.min.js';
 QrScanner.WORKER_PATH = '/static/js/qr-scanner-worker.min.js';
 
 const video = document.getElementById('videoInput');
