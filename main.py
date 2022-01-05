@@ -49,7 +49,7 @@ def make_app():
     app_settings = dict(
         template_path = "templates",
         static_path = "static",
-        debug = True
+        debug = False
     )
     return tornado.web.Application([
         # (r"/", MainHandler),
