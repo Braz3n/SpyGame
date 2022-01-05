@@ -1,3 +1,24 @@
+// Polyfill for Array.prototype.at
+function at(n) {
+    // ToInteger() abstract op
+    n = Math.trunc(n) || 0;
+    // Allow negative indexing from the end
+    if (n < 0) n += this.length;
+    // OOB access is guaranteed to return undefined
+    if (n < 0 || n >= this.length) return undefined;
+    // Otherwise, this is just normal property access
+    return this[n];
+}
+
+const TypedArray = Reflect.getPrototypeOf(Int8Array);
+for (const C of [Array, String, TypedArray]) {
+    Object.defineProperty(C.prototype, "at",
+                          { value: at,
+                            writable: true,
+                            enumerable: false,
+                            configurable: true });
+}
+
 // import QrScanner from '/static/js/qr-scanner.min.js';
 import QrScanner from '/static/js/qr-scanner.js';
 QrScanner.WORKER_PATH = '/static/js/qr-scanner-worker.min.js';
@@ -151,7 +172,7 @@ function parse_decoded_qr(code) {
 
 function updateLogScreen(new_line) {
     console.log(LOG_BUFFER);
-    if ((LOG_BUFFER.length > 0 && LOG_BUFFER.at(-1) == new_line) || new_line == '') {
+    if ((LOG_BUFFER.length > 0 && LOG_BUFFER.at(LOG_MAX_LINES-1) == new_line) || new_line == '') {
         return;
     }
 
